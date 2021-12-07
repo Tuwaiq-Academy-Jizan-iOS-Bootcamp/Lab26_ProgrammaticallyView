@@ -3,11 +3,11 @@
 Lab for programmatically View &amp; introduce MapKit Framework
 
 ### Topic
-Base on the lecture, you need to create an App that display a map (Use MapKit), one segmented Control (Standard, Hybrid, Satellite), one Label (Points of Interest) and one switch button. br
-When the switch button is On the app display all point of interest. br
+Base on the lecture, you need to create an App that display a map (Use MapKit), one segmented Control (Standard, Hybrid, Satellite), one Label (Points of Interest) and one switch button. <br>
+When the switch button is On the app display all point of interest. <br>
 When the switch button is Off the app dismiss all point of interest. 
-br
-br
+<br>
+<br>
 Only use Coding to make and display those views
 
 
