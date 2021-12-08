@@ -101,9 +101,9 @@ class ViewController: UIViewController {
         
         switch switchBtn.isOn{
         case true:
-            mapView.mapType = .hybridFlyover
-        case false: break
-            
+            mapView.pointOfInterestFilter = .includingAll
+        case false:
+            mapView.pointOfInterestFilter = .excludingAll
         }
         
     }
