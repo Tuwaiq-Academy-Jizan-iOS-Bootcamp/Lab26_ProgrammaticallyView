@@ -22,8 +22,7 @@ class ViewController: UIViewController {
         view = mapView
       
         let segmentedControl = UISegmentedControl(items: ["Standard","Hybrid","Satellite"])
-        segmentedControl.backgroundColor = UIColor.systemBackground
-      
+
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
         segmentedControl.selectedSegmentIndex = 0
@@ -85,12 +84,15 @@ class ViewController: UIViewController {
     @objc func switchState(_ sender:UISwitch){
         if (sender.isOn == true){
             
-        mapView.showsPointsOfInterest = true
+        //mapView.showsPointsOfInterest = true
+            mapView.pointOfInterestFilter = .includingAll
             
             
         }
         else{
-            mapView.showsPointsOfInterest = false
+          //  mapView.showsPointsOfInterest = false
+            mapView.pointOfInterestFilter = .excludingAll
+
             
         }
     }
