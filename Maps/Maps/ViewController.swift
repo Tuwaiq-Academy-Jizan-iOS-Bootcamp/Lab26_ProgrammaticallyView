@@ -6,6 +6,9 @@ import MapKit
 class ViewController: UIViewController {
 
     var mapView : MKMapView!
+    let switchPoint = UISwitch()
+    let labelPoint = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,44 @@ mapView = MKMapView()
             leadingConstraint.isActive = true
             traillingConstraint.isActive = true
           segmentedControler.addTarget(self,action:#selector(mapTypeChanged(_:)), for:.valueChanged)
+        
+        
+        let switchPoint = UISwitch()
+        
+        let labelPoint = UILabel()
+        labelPoint.text = "Point of Intrest"
+        labelPoint.backgroundColor = .systemBackground
+        labelPoint.textColor = .systemOrange
+        labelPoint.translatesAutoresizingMaskIntoConstraints = false
+        
+        segmentedControler.backgroundColor = UIColor.systemBackground
+        
+        segmentedControler.selectedSegmentTintColor = .systemYellow
+        segmentedControler.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControler.selectedSegmentIndex = 0
+        
+        switchPoint.translatesAutoresizingMaskIntoConstraints = false
+        switchPoint.onTintColor = .systemOrange
+        switchPoint.isOn = true
+        switchPoint.setOn(true, animated: false)
+        view.addSubview(switchPoint)
+        view.addSubview(segmentedControler)
+        
+        // label
+          view.addSubview(labelPoint)
+         let topLabel = labelPoint.topAnchor.constraint(equalTo: segmentedControler.bottomAnchor, constant: 22)
+         let leftLabel = labelPoint.leadingAnchor.constraint(equalTo: margins.leadingAnchor,constant: 22)
+          topLabel.isActive = true
+          leftLabel.isActive = true
+        
+        //Switch
+        let topSwitch = switchPoint.topAnchor.constraint(equalTo: segmentedControler.bottomAnchor, constant: 11)
+          let leftSwitch = switchPoint.leftAnchor.constraint(equalTo: labelPoint.rightAnchor, constant: 11)
+          topSwitch.isActive = true
+          leftSwitch.isActive = true
+          switchPoint.addTarget(self, action: #selector(mapSwitchPoint(_:)), for: .valueChanged)
+        
+        
           }
     
         @objc func mapTypeChanged(_ segContro:UISegmentedControl){ switch segContro.selectedSegmentIndex {
@@ -48,4 +89,16 @@ mapView = MKMapView()
           print("Error")
         }
         }
+    
+    
+    @objc func mapSwitchPoint(_ withUISwitch: UISwitch)
+      {
+        switch withUISwitch.isOn
+        {
+        case true: mapView.pointOfInterestFilter = .includingAll
+        case false:mapView.pointOfInterestFilter = .excludingAll
+  
         }
+    
+        }
+}
