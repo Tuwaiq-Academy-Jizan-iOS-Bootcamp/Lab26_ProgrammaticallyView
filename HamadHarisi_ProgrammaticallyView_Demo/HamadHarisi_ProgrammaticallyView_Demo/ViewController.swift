@@ -26,18 +26,18 @@ view = mapView
     labelOnMap.text = "Points of Interest"
     labelOnMap.backgroundColor = .systemGroupedBackground
 //    labelOnMap.textColor = .systemFill
-    labelOnMap.textColor = .systemPurple
+    labelOnMap.textColor = .black
     labelOnMap.translatesAutoresizingMaskIntoConstraints = false
     
     
     segmentedControl.backgroundColor = UIColor.systemBackground
 //    segmentedControl.tintColor = .systemGreen
-    segmentedControl.selectedSegmentTintColor = .systemGreen
+    segmentedControl.selectedSegmentTintColor = .systemGroupedBackground
     segmentedControl.translatesAutoresizingMaskIntoConstraints = false
     segmentedControl.selectedSegmentIndex = 0
     
     switchMap.translatesAutoresizingMaskIntoConstraints = false
-    switchMap.onTintColor = .systemRed
+    switchMap.onTintColor = .secondarySystemBackground
     switchMap.isOn = true
     switchMap.setOn(true, animated: false)
     view.addSubview(switchMap)
@@ -58,8 +58,8 @@ view = mapView
     leftLabel.isActive = true
     
    //switch
- let topSwitch =   switchMap.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 11)
-  let leftSwitch =  switchMap.leftAnchor.constraint(equalTo: labelOnMap.rightAnchor, constant: 11)
+    let topSwitch  =  switchMap.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 11)
+    let leftSwitch =  switchMap.leftAnchor.constraint(equalTo: labelOnMap.rightAnchor, constant: 11)
     topSwitch.isActive = true
     leftSwitch.isActive = true
   
